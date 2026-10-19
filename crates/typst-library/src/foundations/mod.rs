@@ -24,7 +24,8 @@ mod int;
 mod label;
 mod module;
 mod none;
-#[path = "plugin.rs"]
+#[cfg_attr(feature = "plugins", path = "plugin.rs")]
+#[cfg_attr(not(feature = "plugins"), path = "plugin_disabled.rs")]
 mod plugin_;
 mod scope;
 mod selector;

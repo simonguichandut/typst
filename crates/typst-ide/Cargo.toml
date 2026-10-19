@@ -13,8 +13,8 @@ keywords = { workspace = true }
 readme = { workspace = true }
 
 [dependencies]
-typst = { workspace = true }
-typst-eval = { workspace = true }
+typst = { workspace = true, default-features = true }
+typst-eval = { workspace = true, default-features = true }
 comemo = { workspace = true }
 ecow = { workspace = true }
 pathdiff = { workspace = true }

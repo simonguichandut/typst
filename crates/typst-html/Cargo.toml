@@ -29,3 +29,6 @@ time = { workspace = true }
 
 [lints]
 workspace = true
+
+[features]
+default = ["typst-library/default"]

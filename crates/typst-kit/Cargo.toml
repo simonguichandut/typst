@@ -12,7 +12,7 @@ readme = { workspace = true }
 
 [dependencies]
 typst-assets = { workspace = true, optional = true }
-typst-library = { workspace = true }
+typst-library = { workspace = true, default-features = true }
 typst-syntax = { workspace = true }
 typst-timing = { workspace = true }
 typst-utils = { workspace = true }

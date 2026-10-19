@@ -1,31 +1,46 @@
+#[cfg(feature = "syntax-highlighting")]
 use std::cell::LazyCell;
+#[cfg(feature = "syntax-highlighting")]
 use std::ops::Range;
+#[cfg(feature = "syntax-highlighting")]
 use std::sync::{Arc, LazyLock};
 
 use comemo::Tracked;
 use ecow::{EcoString, EcoVec};
+#[cfg(feature = "syntax-highlighting")]
 use syntect::highlighting::{self as synt};
+#[cfg(feature = "syntax-highlighting")]
 use syntect::parsing::{ParseSyntaxError, SyntaxDefinition, SyntaxSet, SyntaxSetBuilder};
-use typst_syntax::{LinkedNode, Span, Spanned, split_newlines};
+#[cfg(feature = "syntax-highlighting")]
+use typst_syntax::LinkedNode;
+use typst_syntax::{Span, Spanned, split_newlines};
+#[cfg(feature = "syntax-highlighting")]
 use typst_utils::ManuallyHash;
 use unicode_segmentation::UnicodeSegmentation;
 
 use super::Lang;
 use crate::World;
-use crate::diag::{
-    LineCol, LoadError, LoadResult, LoadedWithin, ReportPos, SourceResult,
-};
+#[cfg(feature = "syntax-highlighting")]
+use crate::diag::LoadedWithin;
+use crate::diag::SourceResult;
+#[cfg(feature = "syntax-highlighting")]
+use crate::diag::{LineCol, LoadError, LoadResult, ReportPos};
 use crate::engine::Engine;
+#[cfg(feature = "syntax-highlighting")]
+use crate::foundations::{Bytes, Target, TargetElem};
 use crate::foundations::{
-    Bytes, Content, Derived, OneOrMultiple, Packed, PlainText, ShowSet, Smart,
-    StyleChain, Styles, Synthesize, Target, TargetElem, cast, elem, scope,
+    Content, Derived, OneOrMultiple, Packed, PlainText, ShowSet, Smart, StyleChain,
+    Styles, Synthesize, cast, elem, scope,
 };
 use crate::introspection::{Locatable, Tagged};
 use crate::layout::{Em, HAlignment};
-use crate::loading::{DataSource, Load};
+use crate::loading::DataSource;
+#[cfg(feature = "syntax-highlighting")]
+use crate::loading::Load;
 use crate::model::{Figurable, ParElem};
 use crate::routines::Routines;
 use crate::text::{FontFamily, FontList, LocalName, TextElem, TextSize};
+#[cfg(feature = "syntax-highlighting")]
 use crate::visualize::Color;
 
 /// Raw text with optional syntax highlighting.
@@ -333,6 +348,7 @@ impl RawElem {
 
 impl RawElem {
     /// The supported language names and tags.
+    #[cfg(feature = "syntax-highlighting")]
     pub fn languages() -> Vec<(&'static str, Vec<&'static str>)> {
         RAW_SYNTAXES
             .syntaxes()
@@ -365,6 +381,7 @@ impl Synthesize for Packed<RawElem> {
 }
 
 impl Packed<RawElem> {
+    #[cfg(feature = "syntax-highlighting")]
     #[comemo::memoize]
     fn highlight(&self, routines: &Routines, styles: StyleChain) -> Vec<Packed<RawLine>> {
         let elem = self.as_ref();
@@ -576,9 +593,11 @@ cast! {
 }
 
 /// A loaded syntax.
+#[cfg(feature = "syntax-highlighting")]
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub struct RawSyntax(Arc<ManuallyHash<SyntaxSet>>);
 
+#[cfg(feature = "syntax-highlighting")]
 impl RawSyntax {
     /// Load syntaxes from sources.
     fn load(
@@ -617,11 +636,13 @@ impl RawSyntax {
     }
 }
 
+#[cfg(feature = "syntax-highlighting")]
 fn format_syntax_error(error: ParseSyntaxError) -> LoadError {
     let pos = syntax_error_pos(&error);
     LoadError::new(pos, "failed to parse syntax", error)
 }
 
+#[cfg(feature = "syntax-highlighting")]
 fn syntax_error_pos(error: &ParseSyntaxError) -> ReportPos {
     match error {
         ParseSyntaxError::InvalidYaml(scan_error) => {
@@ -636,9 +657,11 @@ fn syntax_error_pos(error: &ParseSyntaxError) -> ReportPos {
 }
 
 /// A loaded syntect theme.
+#[cfg(feature = "syntax-highlighting")]
 #[derive(Debug, Clone, PartialEq, Hash)]
 pub struct RawTheme(Arc<ManuallyHash<synt::Theme>>);
 
+#[cfg(feature = "syntax-highlighting")]
 impl RawTheme {
     /// Load a theme from a data source.
     fn load(
@@ -665,6 +688,7 @@ impl RawTheme {
     }
 }
 
+#[cfg(feature = "syntax-highlighting")]
 fn format_theme_error(error: syntect::LoadingError) -> LoadError {
     let pos = match &error {
         syntect::LoadingError::ParseSyntax(err, _) => syntax_error_pos(err),
@@ -706,6 +730,7 @@ impl PlainText for Packed<RawLine> {
 }
 
 /// Wrapper struct for the state required to highlight Typst code.
+#[cfg(feature = "syntax-highlighting")]
 struct ThemedHighlighter<'a> {
     /// The code being highlighted.
     code: &'a str,
@@ -728,10 +753,13 @@ struct ThemedHighlighter<'a> {
 }
 
 // Shorthands for highlighter closures.
+#[cfg(feature = "syntax-highlighting")]
 type StyleFn<'a> =
     &'a mut dyn FnMut(usize, &LinkedNode, Range<usize>, synt::Style) -> Content;
+#[cfg(feature = "syntax-highlighting")]
 type LineFn<'a> = &'a mut dyn FnMut(usize, Range<usize>, &mut Vec<Content>);
 
+#[cfg(feature = "syntax-highlighting")]
 impl<'a> ThemedHighlighter<'a> {
     pub fn new(
         code: &'a str,
@@ -836,6 +864,7 @@ fn preprocess(
 }
 
 /// Style a piece of text with a syntect style.
+#[cfg(feature = "syntax-highlighting")]
 fn styled(
     routines: &Routines,
     target: Target,
@@ -874,16 +903,19 @@ fn styled(
     body
 }
 
+#[cfg(feature = "syntax-highlighting")]
 fn to_typst(synt::Color { r, g, b, a }: synt::Color) -> Color {
     Color::from_u8(r, g, b, a)
 }
 
+#[cfg(feature = "syntax-highlighting")]
 fn to_syn(color: Color) -> synt::Color {
     let (r, g, b, a) = color.to_rgb().into_format::<u8, u8>().into_components();
     synt::Color { r, g, b, a }
 }
 
 /// Create a syntect theme item.
+#[cfg(feature = "syntax-highlighting")]
 fn item(
     scope: &str,
     color: Option<&str>,
@@ -930,10 +962,12 @@ fn align_tabs(text: &str, tab_size: usize) -> EcoString {
 ///
 /// Syntax set is generated from the syntaxes from the `bat` project
 /// <https://github.com/sharkdp/bat/tree/master/assets/syntaxes>
+#[cfg(feature = "syntax-highlighting")]
 pub static RAW_SYNTAXES: LazyLock<syntect::parsing::SyntaxSet> =
     LazyLock::new(two_face::syntax::extra_no_newlines);
 
 /// The default theme used for syntax highlighting.
+#[cfg(feature = "syntax-highlighting")]
 pub static RAW_THEME: LazyLock<synt::Theme> = LazyLock::new(|| synt::Theme {
     name: Some("Typst Light".into()),
     author: Some("The Typst Project Developers".into()),
@@ -972,3 +1006,60 @@ pub static RAW_THEME: LazyLock<synt::Theme> = LazyLock::new(|| synt::Theme {
         item("meta.mapping.value.json string.quoted.double.json", Some("#198810"), None),
     ],
 });
+
+// Keep raw text and the element API available without syntax databases.
+#[cfg(not(feature = "syntax-highlighting"))]
+impl RawElem {
+    /// No highlighted languages are installed in this build.
+    pub fn languages() -> Vec<(&'static str, Vec<&'static str>)> {
+        vec![]
+    }
+}
+#[cfg(not(feature = "syntax-highlighting"))]
+impl Packed<RawElem> {
+    fn highlight(
+        &self,
+        _routines: &Routines,
+        styles: StyleChain,
+    ) -> Vec<Packed<RawLine>> {
+        let lines = preprocess(&self.as_ref().text, styles, self.span());
+        let count = lines.len() as i64;
+        lines
+            .into_iter()
+            .enumerate()
+            .map(|(i, (line, span))| {
+                Packed::new(RawLine::new(
+                    i as i64 + 1,
+                    count,
+                    line.clone(),
+                    TextElem::packed(line).spanned(span),
+                ))
+                .spanned(span)
+            })
+            .collect()
+    }
+}
+#[cfg(not(feature = "syntax-highlighting"))]
+#[derive(Debug, Clone, PartialEq, Hash)]
+pub struct RawSyntax;
+#[cfg(not(feature = "syntax-highlighting"))]
+impl RawSyntax {
+    fn load(
+        _world: Tracked<dyn World + '_>,
+        sources: Spanned<OneOrMultiple<DataSource>>,
+    ) -> SourceResult<Derived<OneOrMultiple<DataSource>, Vec<RawSyntax>>> {
+        crate::diag::bail!(sources.span, "syntax highlighting is disabled in this build")
+    }
+}
+#[cfg(not(feature = "syntax-highlighting"))]
+#[derive(Debug, Clone, PartialEq, Hash)]
+pub struct RawTheme;
+#[cfg(not(feature = "syntax-highlighting"))]
+impl RawTheme {
+    fn load(
+        _world: Tracked<dyn World + '_>,
+        source: Spanned<DataSource>,
+    ) -> SourceResult<Derived<DataSource, Self>> {
+        crate::diag::bail!(source.span, "syntax highlighting is disabled in this build")
+    }
+}

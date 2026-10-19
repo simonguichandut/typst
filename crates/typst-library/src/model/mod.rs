@@ -1,5 +1,9 @@
 //! Structuring elements that define the document model.
 
+#[cfg(feature = "bibliography")]
+mod bibliography;
+#[cfg(not(feature = "bibliography"))]
+#[path = "bibliography_disabled.rs"]
 mod bibliography;
 mod cite;
 mod document;
