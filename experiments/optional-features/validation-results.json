@@ -1,0 +1,22 @@
+[
+  {
+    "variant": "slim",
+    "check": "math-tests",
+    "exit_code": 0
+  },
+  {
+    "variant": "slim",
+    "check": "capabilities",
+    "exit_code": 0
+  },
+  {
+    "variant": "full",
+    "check": "math-tests",
+    "exit_code": 0
+  },
+  {
+    "variant": "full",
+    "check": "capabilities",
+    "exit_code": 0
+  }
+]

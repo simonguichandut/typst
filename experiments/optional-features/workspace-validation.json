@@ -1,0 +1,18 @@
+{
+  "code_commit": "31585031d118b1752ef36c3518544888facd1a5c",
+  "base": "v0.14.2",
+  "toolchain": "1.98.0",
+  "configurations": {
+    "slim": {
+      "math_tests_passed": 21,
+      "capability_probes_passed": 9,
+      "external_package_versions": 267
+    },
+    "full": {
+      "math_tests_passed": 21,
+      "capability_probes_passed": 9,
+      "external_package_versions": 319
+    }
+  },
+  "render_comparisons_passed": 36
+}

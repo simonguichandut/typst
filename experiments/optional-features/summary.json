@@ -1,0 +1,16 @@
+{
+  "slim": {
+    "wall_seconds": 180.92073386721313,
+    "cpu_seconds": 509.06,
+    "binary_mib": 132.7890853881836,
+    "target_gib": 1.196487215347588,
+    "maxrss_mib": 1269.296875
+  },
+  "full": {
+    "wall_seconds": 231.17551185935736,
+    "cpu_seconds": 633.72,
+    "binary_mib": 165.21023559570312,
+    "target_gib": 1.4299154300242662,
+    "maxrss_mib": 1364.95703125
+  }
+}

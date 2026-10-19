@@ -1,0 +1,12 @@
+[
+  {
+    "variant": "slim",
+    "binary_bytes": 139239448,
+    "target_bytes": 1284718365
+  },
+  {
+    "variant": "full",
+    "binary_bytes": 173235488,
+    "target_bytes": 1535360002
+  }
+]

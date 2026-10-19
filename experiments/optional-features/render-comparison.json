@@ -1,0 +1,254 @@
+[
+  {
+    "label": "Ramsey $T_2^*$",
+    "format": "svg",
+    "variant": "full",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Ramsey $T_2^*$",
+    "format": "svg",
+    "variant": "slim",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Ramsey $T_2^*$",
+    "format": "png",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Ramsey $T_2^*$",
+    "format": "png",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Ramsey $T_2^*$",
+    "format": "pdf",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Ramsey $T_2^*$",
+    "format": "pdf",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Population $\\frac{1}{\\sqrt{2}}$",
+    "format": "svg",
+    "variant": "full",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Population $\\frac{1}{\\sqrt{2}}$",
+    "format": "svg",
+    "variant": "slim",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Population $\\frac{1}{\\sqrt{2}}$",
+    "format": "png",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Population $\\frac{1}{\\sqrt{2}}$",
+    "format": "png",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Population $\\frac{1}{\\sqrt{2}}$",
+    "format": "pdf",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Population $\\frac{1}{\\sqrt{2}}$",
+    "format": "pdf",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Decay $A e^{-t/T_1}$",
+    "format": "svg",
+    "variant": "full",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Decay $A e^{-t/T_1}$",
+    "format": "svg",
+    "variant": "slim",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Decay $A e^{-t/T_1}$",
+    "format": "png",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Decay $A e^{-t/T_1}$",
+    "format": "png",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Decay $A e^{-t/T_1}$",
+    "format": "pdf",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Decay $A e^{-t/T_1}$",
+    "format": "pdf",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Frequency $\\omega = 2\\pi f$",
+    "format": "svg",
+    "variant": "full",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Frequency $\\omega = 2\\pi f$",
+    "format": "svg",
+    "variant": "slim",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Frequency $\\omega = 2\\pi f$",
+    "format": "png",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Frequency $\\omega = 2\\pi f$",
+    "format": "png",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Frequency $\\omega = 2\\pi f$",
+    "format": "pdf",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Frequency $\\omega = 2\\pi f$",
+    "format": "pdf",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Root $\\sqrt[3]{x+1}$",
+    "format": "svg",
+    "variant": "full",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Root $\\sqrt[3]{x+1}$",
+    "format": "svg",
+    "variant": "slim",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Root $\\sqrt[3]{x+1}$",
+    "format": "png",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Root $\\sqrt[3]{x+1}$",
+    "format": "png",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Root $\\sqrt[3]{x+1}$",
+    "format": "pdf",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Root $\\sqrt[3]{x+1}$",
+    "format": "pdf",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Phase $\\phi = \\pi/2$",
+    "format": "svg",
+    "variant": "full",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Phase $\\phi = \\pi/2$",
+    "format": "svg",
+    "variant": "slim",
+    "byte_identical": false,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Phase $\\phi = \\pi/2$",
+    "format": "png",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Phase $\\phi = \\pi/2$",
+    "format": "png",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Phase $\\phi = \\pi/2$",
+    "format": "pdf",
+    "variant": "full",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  },
+  {
+    "label": "Phase $\\phi = \\pi/2$",
+    "format": "pdf",
+    "variant": "slim",
+    "byte_identical": true,
+    "normalized_svg_or_pixels_identical": true
+  }
+]
